@@ -1,14 +1,12 @@
-export const products = (resq, res) =>{
+import Product from "../models/product.model.js";
+
+export const products =  async (resq, res) =>{
+    const productList= await Product.findAll();
+    
         res.status(200).json({
         success: true,
-        date: [
-            {
-                subject: "programacion v",
-                description: "mi primer api",
-                hora: "20:00 pm",
-                semestre: "7",
-                date: new Date().toDateString(),
-            }
-        ],
+        data: productList
+        
     });
 };
+ 
